@@ -1,0 +1,30 @@
+{
+  "name": "react-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "express-async-handler": "^1.2.0",
+    "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
+    "pgtools": "^0.1.1",
+    "sequelize": "^6.19.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nk0311/React-Backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nk0311/React-Backend/issues"
+  },
+  "homepage": "https://github.com/nk0311/React-Backend#readme"
+}
