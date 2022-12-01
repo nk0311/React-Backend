@@ -1,13 +1,13 @@
-// const express = require('express');
-// const router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-// // Subrouters;
-// const taskRouter = require('./tasks');
-// const employeeRouter = require('./employees');
+// Subrouters;
+const tasksRouter = require('./tasks');
+const employeesRouter = require('./employees');
 
-// // Mount our subrouters to assemble our apiRouter;
-// router.use('/tasks', taskRouter);
-// router.use('/employees', employeeRouter);
+// Mount our subrouters to assemble our apiRouter;
+router.use('/tasks', tasksRouter);
+router.use('/employees', employeesRouter);
 
-// // Export our apiRouter, so that it can be used by our main app in app.js;
-// module.exports = router;
+// Export our apiRouter, so that it can be used by our main app in app.js;
+module.exports = router;
