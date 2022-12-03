@@ -6,20 +6,18 @@ const seedDB = async () => {
 		lastname: "Lynch",
 		department: "Computer Science"
 	});
-	const dummyEmployee2 = await Employee.create({
+	const dummyInstructor2 = await Employee.create({
 		firstname: "Kim",
-		lastname: "Kardashian",
-        department: "Instagram Model"
-
+		lastname: "Kardashian"
 	});
 
 	const dummyTask = await Task.create({
-		description: "Broken Tv",
-        priority_level: "Low",
-        completion_status: true
+		Description: "Teach us",
+        Priority_level: "high",
+        Completion_status: true
 	});
 
-	await dummyTask.setEmployee(dummyEmployee);
+	await dummyTask.setInstructor(dummyEmployee);
 	
 }
 

@@ -15,7 +15,6 @@ const Employee = db.define("employee", {
 
   department: {
     type: Sequelize.STRING,
-    allowNull: false
   },
 
 

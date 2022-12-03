@@ -3,17 +3,18 @@ const db = require('../db');
 
 const Task = db.define("task", {
 
-  description: {
+  Description: {
     type: Sequelize.STRING,
     allowNull: false
   },
 
-  priority_level: {
+  Priority_level: {
     type: Sequelize.STRING
   },
 
-  
-  completion_status: {
+
+
+  Completion_status: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
     defaultValue: true

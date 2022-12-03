@@ -8,53 +8,53 @@ const { Task, Employee } = require('../database/models');
 // them to the error-handling middleware (defined in app.js)
 const ash = require('express-async-handler');
 
-/** GET ALL TaskS: then/catch */
+/** GET ALL COURSES: then/catch */
 // router.get('/', function(req, res, next) {
-//   Task.findAll({include: [Employee]})
-//     .then(Tasks => res.status(200).json(Tasks))
+//   Course.findAll({include: [Instructor]})
+//     .then(courses => res.status(200).json(courses))
 //     .catch(err => next(err));
 // });
 
-/** GET ALL TaskS: async/await */
+/** GET ALL COURSES: async/await */
 // router.get('/', async (req, res, next) => {
 //   try {
-//     let Tasks = await Task.findAll({include: [Employee]});
-//     res.status(200).json(Tasks);
+//     let courses = await Course.findAll({include: [Instructor]});
+//     res.status(200).json(courses);
 //   } catch(err) {
 //     next(err);
 //   }
 // });
 
-/** GET ALL TaskS: express-async-handler (ash) */
+/** GET ALL COURSES: express-async-handler (ash) */
 // automatically catches any error and sends to middleware
 // same as using try/catch and calling next(error)
 router.get('/', ash(async(req, res) => {
-  // {include: [Employee]}
+  //{include: [Instructor]}
   let tasks = await Task.findAll();
   res.status(200).json(tasks);
 }));
 
-/** GET Task BY ID */
+/** GET COURSE BY ID */
 router.get('/:id', ash(async(req, res) => {
   let task = await Task.findByPk(req.params.id, {include: [Employee]});
   res.status(200).json(task);
 }));
 
-/** ADD NEW Task */
+/** ADD NEW COURSE */
 router.post('/', function(req, res, next) {
   Task.create(req.body)
     .then(createdTask => res.status(200).json(createdTask))
     .catch(err => next(err));
 });
 
-/** DELETE Task */
+/** DELETE COURSE */
 router.delete('/:id', function(req, res, next) {
   Task.destroy({
     where: {
       id: req.params.id
     }
   })
-    .then(() => res.status(200).json("Deleted a task!"))
+    .then(() => res.status(200).json("Deleted a course!"))
     .catch(err => next(err));
 });
 

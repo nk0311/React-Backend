@@ -8,19 +8,19 @@ const { Task, Employee } = require('../database/models');
 // them to the error-handling middleware (defined in app.js)
 const ash = require('express-async-handler');
 
-/** GET ALL EmployessS */
+/** GET ALL INSTRUCTORS */
 router.get('/', ash(async(req, res) => {
   let employees = await Employee.findAll({include: [Task]});
   res.status(200).json(employees);
 }));
 
-/** GET Employee BY ID*/
+/** GET INSTRUCTOR BY ID*/
 router.get('/:id', ash(async(req, res) => {
   let employee = await Employee.findByPk(req.params.id, {include: [Task]});
   res.status(200).json(employee);
 }));
 
-// Delete Employee
+// Delete employee
 router.delete('/:id', ash(async(req, res) => {
   await Employee.destroy({
     where: {
@@ -30,10 +30,10 @@ router.delete('/:id', ash(async(req, res) => {
   res.status(200).json("Employee deleted");
 }));
 
-// Add new Employee
+// Add new employee
 router.post('/', ash(async(req, res) => {
-  let newEmployess = await Employee.create(req.body);
-  res.status(200).json(newEmployess);
+  let newEmployee = await Employee.create(req.body);
+  res.status(200).json(newEmployee);
 }));
 
 // Edit Employee
