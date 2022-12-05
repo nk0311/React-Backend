@@ -9,7 +9,7 @@ const { Task, Employee } = require('../database/models');
 const ash = require('express-async-handler');
 
 /** GET ALL INSTRUCTORS */
-router.get('/people', ash(async(req, res) => {
+router.get('/', ash(async(req, res) => {
   let employees = await Employee.findAll({
     attributes: ['firstname', 'lastname', 'department']
   });

@@ -62,8 +62,8 @@ const configureApp = async () => {
     next(error);
   });
 
-  app.use('/Employees', require('./routes/employees'));
-  app.use('/Tasks', require('./routes/tasks'));
+  app.use('/employees', require('./routes/employees'));
+  app.use('/tasks', require('./routes/tasks'));
   // Error-handling middleware: 
   // all express errors get passed to this
   // when next(error) is called 
