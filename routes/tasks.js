@@ -28,7 +28,7 @@ const ash = require('express-async-handler');
 /** GET ALL COURSES: express-async-handler (ash) */
 // automatically catches any error and sends to middleware
 // same as using try/catch and calling next(error)
-router.get('/', ash(async(req, res) => {
+router.get('/jobs', ash(async(req, res) => {
   //{include: [Instructor]}
   let tasks = await Task.findAll( {attributes: ['Description', 'Priority_level', 'Completion_status']});
   res.status(200).json(tasks);
