@@ -1,7 +1,7 @@
 //import database setup utils
 const createDB = require('./database/utils/createDB');
 const seedDB = require('./database/utils/seedDB');
-
+const { Task, Employee } = require('./database/models');
 //import Sequelize instance
 const db = require('./database');
 
@@ -35,6 +35,7 @@ const apiRouter = require('./routes');
 const cors = require('cors')
 
 const configureApp = async () => {
+  const ash = require('express-async-handler');
   // handle request data
   app.use(cors());
   app.use(express.json());
@@ -50,7 +51,7 @@ const configureApp = async () => {
 
    // Mount apiRouter
    app.use("/api", apiRouter);
-
+  
 
   // Handle page not found:
   // gets triggered when a request is made to
@@ -61,6 +62,8 @@ const configureApp = async () => {
     next(error);
   });
 
+  app.use('/Employees', require('./routes/employees'));
+  app.use('/Tasks', require('./routes/tasks'));
   // Error-handling middleware: 
   // all express errors get passed to this
   // when next(error) is called 
@@ -89,6 +92,7 @@ const bootApp = async () => {
 
 
 bootApp();
+configureApp();
 
 
 const PORT = 5001;

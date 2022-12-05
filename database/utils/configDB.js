@@ -1,6 +1,6 @@
 const dbName = 'react-backend';
 const dbUser = 'postgres';
-const dbPwd = '@Iceman05';
+const dbPwd = 'y1y2z345';
 
 module.exports = {
   dbName,
