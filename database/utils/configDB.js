@@ -1,9 +1,11 @@
-const dbName = 'react-backend';
-const dbUser = 'postgres';
-const dbPwd = 'y1y2z345';
+require("dotenv").config();
+
+const dbName = "react-backend";
+const dbUser = "postgres";
+const dbPwd = process.env.PASSWORD;
 
 module.exports = {
   dbName,
   dbUser,
-  dbPwd
+  dbPwd,
 };
