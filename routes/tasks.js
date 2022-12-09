@@ -30,7 +30,10 @@ const ash = require('express-async-handler');
 // same as using try/catch and calling next(error)
 router.get('/', ash(async(req, res) => {
   //{include: [Instructor]}
-  let tasks = await Task.findAll( {attributes: ['Description', 'Priority_level', 'Completion_status']});
+  let tasks = await Task.findAll({
+    attributes: ['Description', 'Priority_level', 'Completion_status'],
+    include: [Employee]
+  });
   res.status(200).json(tasks);
 }));
 

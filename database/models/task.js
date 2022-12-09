@@ -1,25 +1,19 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const Sequelize = require("sequelize");
+const db = require("../db");
 
 const Task = db.define("task", {
-
   Description: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
-
   Priority_level: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
   },
-
-
-
   Completion_status: {
     type: Sequelize.BOOLEAN,
     allowNull: false,
-    defaultValue: true
-  }
-
+    defaultValue: true,
+  },
 });
 
 module.exports = Task;
