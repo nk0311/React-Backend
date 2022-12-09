@@ -1,6 +1,6 @@
 //import database setup utils
 const createDB = require('./database/utils/createDB');
-const seedDB = require('./database/utils/seedDB');
+const seedingTask = require('./database/utils/seed');
 const { Task, Employee } = require('./database/models');
 //import Sequelize instance
 const db = require('./database');
@@ -15,7 +15,7 @@ const syncDatabase = async () => {
 
     await db.sync({force: true});
     console.log('------Synced to db--------')
-    await seedDB();
+    await seedingTask();
     console.log('--------Successfully seeded db--------');
   } catch (err) {
     console.error('syncDB error:', err);
