@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../db');
 
-const Employee = db.define("employee", {
+const Instructor = db.define("instructor", {
 
   firstname: {
     type: Sequelize.STRING,
@@ -17,7 +17,11 @@ const Employee = db.define("employee", {
     type: Sequelize.STRING,
   },
 
+  imageUrl: {
+    type: Sequelize.STRING,
+  }
+
 
 });
 
-module.exports = Employee;
+module.exports = Instructor;

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Task, Employee } = require('../database/models');
+const { Course, Instructor } = require('../database/models');
 
 // helper function so we don't need to wrap our
 // handler functions in try-catch blocks;
@@ -30,29 +30,26 @@ const ash = require('express-async-handler');
 // same as using try/catch and calling next(error)
 router.get('/', ash(async(req, res) => {
   //{include: [Instructor]}
-  let tasks = await Task.findAll({
-    attributes: ['Description', 'Priority_level', 'Completion_status'],
-    include: [Employee]
-  });
-  res.status(200).json(tasks);
+  let courses = await Course.findAll();
+  res.status(200).json(courses);
 }));
 
 /** GET COURSE BY ID */
 router.get('/:id', ash(async(req, res) => {
-  let task = await Task.findByPk(req.params.id, {include: [Employee]});
-  res.status(200).json(task);
+  let course = await Course.findByPk(req.params.id, {include: [Instructor]});
+  res.status(200).json(course);
 }));
 
 /** ADD NEW COURSE */
 router.post('/', function(req, res, next) {
-  Task.create(req.body)
-    .then(createdTask => res.status(200).json(createdTask))
+  Course.create(req.body)
+    .then(createdCourse => res.status(200).json(createdCourse))
     .catch(err => next(err));
 });
 
 /** DELETE COURSE */
 router.delete('/:id', function(req, res, next) {
-  Task.destroy({
+  Course.destroy({
     where: {
       id: req.params.id
     }
@@ -64,11 +61,11 @@ router.delete('/:id', function(req, res, next) {
 /******************* EDIT *********************/
 
 router.put('/:id', ash(async(req, res) => {
-  await Task.update(req.body,
+  await Course.update(req.body,
         { where: {id: req.params.id} }
   );
-  let task = await Task.findByPk(req.params.id);
-  res.status(201).json(task);
+  let course = await Course.findByPk(req.params.id);
+  res.status(201).json(course);
 }));
 
 // Export our router, so that it can be imported to construct our apiRouter;
