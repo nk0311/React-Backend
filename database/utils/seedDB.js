@@ -1,23 +1,23 @@
-const { Instructor, Course } = require('../models');
+const { Employee, Task } = require('../models');
 
 const seedDB = async () => {
-	const dummyInstructor = await Instructor.create({
+	const dummyEmployee = await Employee.create({
 		firstname: "Melissa",
 		lastname: "Lynch",
 		department: "Computer Science"
 	});
-	const dummyInstructor2 = await Instructor.create({
+	const dummyEmployee2 = await Employee.create({
 		firstname: "Kim",
 		lastname: "Kardashian"
 	});
 
-	const dummyCourse = await Course.create({
-		title: "CSCI 39548",
-        location: "C107",
-        timeslot: "W 5:35 - 8:15 PM"
+	const dummyTask = await Task.create({
+		description: "Sleeping",
+        prioritylevel: "high",
+        completionstatus: "incomplete"
 	});
 
-	await dummyCourse.setInstructor(dummyInstructor);
+	await dummyTask.setEmployee(dummyEmployee);
 	
 }
 
