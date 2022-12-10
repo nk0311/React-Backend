@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-// Subrouters;
+// Subrouters
 const tasksRouter = require('./tasks');
 const employeesRouter = require('./employees');
 
