@@ -1,7 +1,7 @@
 # final-backend
 Eric Lin (ELin-Tech)
-Navait Kumar
-Kevin Ulcena
+Navait Kumar (nk0311)
+Kevin Ulcena (Kevin635)
 
 Steps:
 1. npm install pgtools
